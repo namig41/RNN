@@ -1,0 +1,15 @@
+digraph {
+	node [ 	shape = record ];	
+	a [label="Входная\nпоследовательность кадров"]
+	b [label="Вектор признаков"]
+	s [label="LSTM"]
+	c [label="1 слой\n(функция активации: relU)"]
+	f [label="2 слой\n(функция активации: sigmoid)"]
+	q [label="3 слой\n(функция активации: softmax)"] 
+
+	a -> s 
+	s -> f
+	f -> q
+	b -> c
+	c -> f
+}
