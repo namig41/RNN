@@ -1,7 +1,8 @@
 #! /usr/bin/python3
 
 import numpy as np
-import time
+import cv2
+import argparse
 
 class HaarCascade:
 
@@ -12,19 +13,16 @@ class HaarCascade:
         self.label = [chr(i + ord('A')) for i in range(25)]
 
     def train(self):
-
         for data in self.dataset:
             data = np.resize(data[:-1], (28, 28))
             tt = np.zeros(data.shape, dtype=int)
 
             for l in range(data.shape[0]):
-                st = 0
+                st = 1
                 for r in range(data.shape[1]):
                     st += data[l, r] + tt[l - 1, r] + tt[l, r - 1]
                     tt[l, r] = st
-
             self.haar_matrix.append(tt) 
-
         print(self.dataset[0], self.haar_matrix[0])
             
 
