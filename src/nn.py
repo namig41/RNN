@@ -9,11 +9,6 @@ import matplotlib.pyplot as plt
 import random
 from tqdm import tqdm
 
-def show_digit(x, y):
-    print("It is {}".format(y))
-    plt.imshow(x.reshape(28, 28))
-    plt.show()
-
 def init_dataset(name):
     X_train = []
     Y_train = []
@@ -27,11 +22,6 @@ def init_dataset(name):
             Y_train.append(t[0])
 
     return np.array(X_train), np.array(Y_train)
-
-def show_inf(l, a):
-    plt.plot(l)
-    plt.plot(a)
-    plt.show()
 
 def train(model, X_train, Y_train, n):
     BS = 32
