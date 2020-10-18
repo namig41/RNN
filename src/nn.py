@@ -53,7 +53,7 @@ def train(model, X_train, Y_train, n):
         loss.backward()
         optim.step()
 
-    show_inf(accuracies, losses)
+    #show_inf(accuracies, losses)
 
 class Net(torch.nn.Module):
 
@@ -75,8 +75,8 @@ class Net(torch.nn.Module):
 
 def main():
     model = Net()
-    X_train, Y_train = init_dataset('../data/mnist_dataset/mnist_train_100.csv')
-    #train(model, X_train, Y_train, 100)
+    X_train, Y_train = init_dataset('../mnist_dataset/mnist_train_100.csv')
+    train(model, X_train, Y_train, 100)
 
 if __name__ == "__main__":
     main()
